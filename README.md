@@ -32,5 +32,11 @@ The folder variable in the Script can also be modified if you want to run it in 
 
 This Script uses GrooveShark for the Song Information. It uses  EyeD3,  JSON, urllib2, os and sys python modules.
 
+###To-Do
+
+- Add Capability to Integrate Album Art
+- Add Functions to remove garbage text from Title to increase support for more MP3 Files
+
+
 Created By Pradd.
 Copyright 2014
