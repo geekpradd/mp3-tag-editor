@@ -1,3 +1,5 @@
+#MP3 Tag Editor By Pradd.
+#Version 1.0 Apache 2.0 License. Copyright 2014
 import eyed3,urllib2,json,os,sys
 
 def getFiles(params):
