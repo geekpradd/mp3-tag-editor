@@ -31,6 +31,7 @@ The folder variable in the Script can also be modified if you want to run it in 
 ##About
 
 This Script uses GrooveShark for the Song Information. It uses  EyeD3,  JSON, urllib2, os and sys python modules.
+Works with Python 2.x Only. Version 2.7.8 recomendded
 
 ###To-Do
 
