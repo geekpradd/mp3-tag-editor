@@ -37,7 +37,7 @@ Works with Python 2.x Only. Version 2.7.8 recomendded
 
 - Add Capability to Integrate Album Art
 - Add Functions to remove garbage text from Title to increase support for more MP3 Files
-
+- Create GUI using PySide to simplify process
 
 Created By Pradd.
 Copyright 2014
