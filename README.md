@@ -38,12 +38,8 @@ Works with Python 2.x Only. Version 2.7.8 recomendded
 - <s> Add Capability to Integrate Album Art  
 </s>
 - Add Functions to remove garbage text from Title to increase support for more MP3 Files
-<<<<<<< HEAD
 
 - Create a GUI using PySide
-=======
-- Create GUI using PySide to simplify process
->>>>>>> c4d0dd3341b1262debb53282d914bec831adcf75
 
 Created By Pradd.
 Copyright 2014
