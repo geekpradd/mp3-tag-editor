@@ -1,6 +1,6 @@
 #MP3 Tag Editor By Pradd.
 #Version 1.0 Apache 2.0 License. Copyright 2014
-import eyed3,urllib2,json,os,sys
+import eyed3,urllib2,re,json,os,sys
 
 def getFiles(params):
       inputlist= os.listdir(params)
@@ -9,6 +9,24 @@ def getFiles(params):
             outputlist.append(params+data)
       return outputlist
 
+def getAlbumArt(function,artist,name):
+      try:
+            
+            url="http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=348b4a08fda8a9b3c5a1ab7b2937f071&artist={0}&track={1}&format=json".format(artist.lower(),name.lower())
+            url=url.replace(' ','%20')
+            
+      
+            urldata=urllib2.urlopen(url)
+            data=urldata.read()
+      
+      
+            js=json.loads(data)
+            
+            imagelink=js['track']['album']['image'][2]['#text']
+            return imagelink
+      except:
+            
+            return False
 def loadfile(location):
       audiofile=eyed3.load(location)
       print "Opened {0} in EyeD3".format(location)
@@ -27,15 +45,27 @@ def getData(name):
             return jsondata
 
 def modify(function, jsondata,name,artist=True,album=True,albumartist=False):
+      
       artist=jsondata['ArtistName']
       album=jsondata['AlbumName']
       print "Modifying tag data of {0} \n".format(name)
       
       function.tag.artist=artist
       function.tag.album=album
-
+      name=name.replace(artist,'')
+      name=name.replace('-','')
+      print name
+      picture=getAlbumArt(function,artist,name)
+      if picture:
+            print "Album Art found"
+            imagedata = urllib2.urlopen(picture).read()
+            function.tag.images.set(3,imagedata,"image/jpeg",u"you can put a description here")
+      else:
+            print "Album Art Not Found.."
+      
       function.tag.save()
-      return True
+      return True,artist
+
 
 def main():
       
@@ -43,13 +73,16 @@ def main():
             try:
                   function=loadfile(file)
                   jsondata=getData(function.tag.title)
+                  
                   if not jsondata:
                         pass
                   else:
                   
-                        modify(function,jsondata,function.tag.title)
+                        status, art=modify(function,jsondata,function.tag.title)
             except:
                   pass
+            
+                 
 
       print "Thanks for using..."
 
