@@ -1,4 +1,4 @@
-#MP3 Tag Editor By Pradd
+# MP3 Tag Editor By Pradd
 
 MP3 Tag Editor is a Python Script that helps in fixing missing Album and Artist name details and Album Art of MP3 Music Files.
 
@@ -16,7 +16,7 @@ Alternatively [ this link](http://eyed3.nicfit.net//releases/eyeD3-0.7.5.tgz) wi
 python setup.py install
 ```
 
-##Usage
+## Usage
 
 This Script can be used either from the console or from the IDLE by modifying the folder variable.
 
@@ -28,12 +28,12 @@ python mp3-tag-editor.py [Entire Folder name]
 
 The folder variable in the Script can also be modified if you want to run it in the IDLE.
 
-##About
+## About
 
 This Script uses GrooveShark for the Song Information and Last.fm API for the Album Art. It uses  EyeD3,  JSON, urllib2, os and sys python modules.
 Works with Python 2.x Only. Version 2.7.8 recomendded
 
-###To-Do
+### To-Do
 
 - <s> Add Capability to Integrate Album Art  
 </s>
